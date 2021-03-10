@@ -129,12 +129,12 @@ def euler5(rangeLimit=20):
 		tempList=factorGen(i,primeList) #Get all prime factors of i from the factorGen function, named tempList since it will be overwritten each time it loops
 		for x in tempList: #Loop through list of prime factors of i
 			if not x in primeFactors: #Check if a factor does not exist in the primeFactors list
-				for y in range(tempList.count(x)): #Check how many instances the given factor shows up in tempList
+				for _ in range(tempList.count(x)): #Check how many instances the given factor shows up in tempList
 					primeFactors.append(x) #Add that many instances of the factor to the primeFactors list
 			else: #If a factor already exists in the primeFactors list
 				difference=tempList.count(x) - primeFactors.count(x) #Compare number of occurrences of the factor in tempList with primeFactors
 				if difference > 0: #Check if there are more instances of the factor in tempList than in primeFactors
-					for y in range(difference): #Add a number of entries of the factor to primeFactors equal to the difference
+					for _ in range(difference): #Add a number of entries of the factor to primeFactors equal to the difference
 						primeFactors.append(x)
 	for i in primeFactors:
 		result*=i #Multiply all values in primeFactors
